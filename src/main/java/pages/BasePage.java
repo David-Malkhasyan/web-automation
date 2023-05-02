@@ -1,9 +1,12 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
 import setup.Configurations;
+
+import java.util.List;
 
 public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableComponent<T> {
     WebDriver driver;
@@ -31,5 +34,17 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
     @Override
     protected void load(){
         driver.get(Configurations.BASE_URL + getPageUrl());
+    }
+
+    public void click(WebElement element){
+        element.click();
+    }
+
+    public void clickElementByText(String str, List<WebElement> elements) {
+        for (WebElement element : elements)
+            if (element.getText().contains(str)) {
+                click(element);
+                return;
+            }
     }
 }
