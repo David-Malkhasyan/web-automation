@@ -37,4 +37,8 @@ public class HomePage extends BasePage<HomePage>{
     protected void isLoaded() throws Error {
     }
 
+    public void clickOnCategoryCard(String categoryName){
+        clickElementByText(categoryName, categoryCards);
+    }
+
 }
