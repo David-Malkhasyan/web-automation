@@ -1,6 +1,7 @@
 package pages;
 
 import helpers.WaitHelper;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -18,6 +19,7 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
 
     public BasePage(WebDriver driver){
         this.driver=driver;
+        PropertyConfigurator.configure("src/main/resources/configs/log4j.properties");
         logger = Logger.getLogger(this.getClass().getSimpleName());
     }
 
