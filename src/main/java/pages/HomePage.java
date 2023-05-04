@@ -14,9 +14,10 @@ public class HomePage extends BasePage<HomePage>{
     @CacheLookup
     public List<WebElement> categoryCards;
 
-    @FindBy(css = "div.category-cardddds > div")
+    @FindBy(css = "div.category-carrrrrds > div")
     @CacheLookup
-    public List<WebElement> test;
+    public WebElement test;
+
 
 
     public HomePage(){
@@ -40,6 +41,10 @@ public class HomePage extends BasePage<HomePage>{
 
     public void clickOnCategoryCard(String categoryName){
         clickElementByText(categoryName, categoryCards);
+    }
+
+    public void click(){
+        click(test);
     }
 
 }

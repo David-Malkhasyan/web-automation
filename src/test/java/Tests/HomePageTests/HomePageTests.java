@@ -9,6 +9,5 @@ public class HomePageTests extends BaseTest {
     @Test
     public void textBoxVerification(){
         HomePage homePage = new HomePage().open();
-
     }
 }
