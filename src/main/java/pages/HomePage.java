@@ -14,11 +14,6 @@ public class HomePage extends BasePage<HomePage>{
     @CacheLookup
     public List<WebElement> categoryCards;
 
-    @FindBy(css = "div.category-carrrrrds > div")
-    @CacheLookup
-    public WebElement test;
-
-
 
     public HomePage(){
         super(DriverFactory.getDriverThread());
@@ -41,10 +36,6 @@ public class HomePage extends BasePage<HomePage>{
 
     public void clickOnCategoryCard(String categoryName){
         clickElementByText(categoryName, categoryCards);
-    }
-
-    public void click(){
-        click(test);
     }
 
 }

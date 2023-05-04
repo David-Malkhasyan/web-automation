@@ -14,7 +14,7 @@ public class Configurations {
     static {
         try {
             props = new Properties();
-            inputStream = new FileInputStream("src/main/resources/configuration.properties");
+            inputStream = new FileInputStream("src/main/resources/configs/configuration.properties");
             props.load(inputStream);
 
             BROWSER = props.getProperty("run.browser");

@@ -5,16 +5,22 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
+import org.apache.log4j.Logger;
 import setup.Configurations;
 
 import java.util.List;
 
 public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableComponent<T> {
-    WebDriver driver;
+
+    protected final WebDriver driver;
+    protected final Logger logger;
+
 
     public BasePage(WebDriver driver){
         this.driver=driver;
+        logger = Logger.getLogger(this.getClass().getSimpleName());
     }
+
     protected abstract T open();
 
     protected abstract T init();
@@ -44,15 +50,21 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
     }
 
     public void click(WebElement element){
-        element.click();
+        try {
+            element.click();
+        } catch (Exception e) {
+            System.out.println("Click on isn't performed - " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     public void clickElementByText(String str, List<WebElement> elements) {
+        logger.info("bldo");
         for (WebElement element : elements)
             if (element.getText().contains(str)) {
-                System.out.println(element.getText().contains(str));
                 click(element);
                 return;
             }
+        System.out.println("Element with such text is not found");
     }
 }
