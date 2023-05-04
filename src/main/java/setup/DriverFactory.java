@@ -3,8 +3,11 @@ package setup;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+
+import javax.print.DocFlavor;
 
 public class DriverFactory {
 
@@ -14,8 +17,10 @@ public class DriverFactory {
         try {
             switch (Configurations.BROWSER) {
                 case "CHROME" -> {
+                    ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions.addArguments("--remote-allow-origins=*");
                     WebDriverManager.chromedriver().setup();
-                    driverThread.set(new ChromeDriver());
+                    driverThread.set(new ChromeDriver(chromeOptions));
                 }
                 case "FIREFOX" -> {
                     WebDriverManager.firefoxdriver().setup();

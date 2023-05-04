@@ -1,5 +1,6 @@
 package pages;
 
+import helpers.WaitHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -23,6 +24,7 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
     protected T openPage(Class<T> clazz) {
         T page = PageFactory.initElements(driver, clazz);
         load();
+        isLoaded();
         return page.get();
     }
 
@@ -36,6 +38,11 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
         driver.get(Configurations.BASE_URL + getPageUrl());
     }
 
+    @Override
+    protected void isLoaded(){
+        WaitHelper.isPageFullyLoaded(15);
+    }
+
     public void click(WebElement element){
         element.click();
     }
@@ -43,6 +50,7 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
     public void clickElementByText(String str, List<WebElement> elements) {
         for (WebElement element : elements)
             if (element.getText().contains(str)) {
+                System.out.println(element.getText().contains(str));
                 click(element);
                 return;
             }

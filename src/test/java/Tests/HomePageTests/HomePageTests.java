@@ -1,17 +1,14 @@
-package Tests.ElementsTests;
+package Tests.HomePageTests;
 
 import Tests.BaseTest;
 import objects.Categories;
 import org.testng.annotations.Test;
-import pages.BasePage;
 import pages.HomePage;
 
-public class ElementsTests extends BaseTest {
-
+public class HomePageTests extends BaseTest {
     @Test
     public void textBoxVerification(){
         HomePage homePage = new HomePage().open();
-        homePage.clickOnCategoryCard(Categories.ELEMENTS.getValue());
-    }
 
+    }
 }

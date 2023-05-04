@@ -14,6 +14,11 @@ public class HomePage extends BasePage<HomePage>{
     @CacheLookup
     public List<WebElement> categoryCards;
 
+    @FindBy(css = "div.category-cardddds > div")
+    @CacheLookup
+    public List<WebElement> test;
+
+
     public HomePage(){
         super(DriverFactory.getDriverThread());
     }
@@ -31,10 +36,6 @@ public class HomePage extends BasePage<HomePage>{
     @Override
     protected String getPageUrl() {
         return "";
-    }
-
-    @Override
-    protected void isLoaded() throws Error {
     }
 
     public void clickOnCategoryCard(String categoryName){
