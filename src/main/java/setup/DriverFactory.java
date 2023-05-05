@@ -7,8 +7,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
-import javax.print.DocFlavor;
-
 public class DriverFactory {
 
     public static ThreadLocal<WebDriver> driverThread = new ThreadLocal<>();

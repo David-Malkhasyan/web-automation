@@ -2,6 +2,7 @@ package Tests;
 
 import helpers.WaitHelper;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -9,27 +10,28 @@ import org.testng.asserts.SoftAssert;
 import setup.DriverFactory;
 
 public class BaseTest {
-    public Logger logger;
-    public WebDriver driver;
+    protected Logger logger;
+    protected WebDriver driver;
     private DriverFactory driverFactory;
 
-    public  BaseTest(){
-        logger = Logger.getLogger(this.getClass());
+    public BaseTest() {
+        logger = Logger.getLogger(this.getClass().getSimpleName());
+        PropertyConfigurator.configure("src/main/resources/configs/log4j.properties");
     }
 
     @BeforeMethod
-    public  void setup(){
+    public void setup() {
         logger.info("started");
         SoftAssert softAssert = new SoftAssert();
         driverFactory = new DriverFactory();
-        driver = driverFactory.getDriverThread();
+        driver = DriverFactory.getDriverThread();
     }
 
     @AfterMethod
-    public void tearDown(){
+    public void tearDown() {
         WaitHelper.sleep(500);
         driver.quit();
-        driverFactory.removeDriverThread();
+        DriverFactory.removeDriverThread();
     }
 }
 
