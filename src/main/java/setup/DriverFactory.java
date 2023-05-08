@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import java.time.Duration;
+
 public class DriverFactory {
 
     public static ThreadLocal<WebDriver> driverThread = new ThreadLocal<>();
@@ -30,6 +32,7 @@ public class DriverFactory {
                 }
             }
             driverThread.get().manage().window().maximize();
+            driverThread.get().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
         }
         catch (Exception e){
             System.out.println("Browser selection failed");

@@ -18,6 +18,9 @@ public class HomePage extends BasePage<HomePage> {
     @CacheLookup
     public WebElement joinNowSection;
 
+    @FindBy(id = "userName")
+    public WebElement fullNameInput;
+
     public HomePage() {
         super(DriverFactory.getDriverThread());
     }
@@ -44,6 +47,11 @@ public class HomePage extends BasePage<HomePage> {
 
     public boolean visibilityOfJoinNowSection() {
         return isElementVisible(joinNowSection);
+    }
+
+    public HomePage writeFullName(String textToWrite) {
+        type(fullNameInput, textToWrite);
+        return this;
     }
 
 }

@@ -12,6 +12,7 @@ public class ElementsTests extends BaseTest {
         logger.info("test");
         HomePage homePage = new HomePage()
                 .init()
-                .clickOnCategoryCard(CategoriesEnum.ELEMENTS.getValue());
+                .clickOnCategoryCard(CategoriesEnum.ELEMENTS.getValue())
+                .writeFullName("Partik jones");
     }
 }

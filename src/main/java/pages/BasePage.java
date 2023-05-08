@@ -57,6 +57,14 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
         }
     }
 
+    public void type(WebElement element, String text) {
+        try {
+            element.sendKeys(text);
+        } catch (Exception e) {
+            logger.error("Text writing failed");
+        }
+    }
+
     public void clickElementByText(String str, List<WebElement> elements) {
         for (WebElement element : elements)
             if (element.getText().contains(str)) {
