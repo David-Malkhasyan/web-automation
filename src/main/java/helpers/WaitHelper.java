@@ -1,10 +1,9 @@
 package helpers;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 
@@ -13,7 +12,7 @@ import static setup.DriverFactory.getDriverThread;
 public class WaitHelper {
 
     private static final WebDriver driver = getDriverThread();
-    private static final Logger logger = LoggerFactory.getLogger(WaitHelper.class.getSimpleName());
+    private static final Logger logger = Logger.getLogger(WaitHelper.class.getSimpleName());
 
     public static void sleep(int threadSleepPeriod) {
         try {
@@ -32,7 +31,7 @@ public class WaitHelper {
                     executeScript("return document.readyState").equals("complete"));
         }
         catch (Exception e){
-            logger.error("Page is not opened");
+            logger.error("Page is not loaded");
         }
     }
 
