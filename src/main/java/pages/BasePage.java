@@ -29,7 +29,6 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
     protected T openPage(Class<T> clazz) {
         T page = PageFactory.initElements(driver, clazz);
         load();
-        isLoaded();
         return page.get();
     }
 
@@ -45,6 +44,7 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
 
     @Override
     protected void isLoaded() {
+        System.out.println("parent");
         WaitHelper.isPageFullyLoaded(15);
     }
 
@@ -65,5 +65,14 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
                 return;
             }
         logger.error("Element with such text was not found");
+    }
+
+    public boolean isElementVisible(WebElement element) {
+        try {
+            return element.isDisplayed();
+        } catch (Exception e) {
+            logger.error("Element is not displayed");
+            return false;
+        }
     }
 }

@@ -1,6 +1,6 @@
 package objects;
 
-public enum Categories {
+public enum CategoriesEnum {
     ELEMENTS("Elements"),
     FORMS("Forms"),
     ALERTS("Alerts, Frame & Windows"),
@@ -10,7 +10,7 @@ public enum Categories {
 
     private final String categoryName;
 
-    Categories(String categoryName) {
+    CategoriesEnum(String categoryName) {
         this.categoryName = categoryName;
     }
 

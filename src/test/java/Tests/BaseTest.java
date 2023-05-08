@@ -13,6 +13,7 @@ public class BaseTest {
     protected Logger logger;
     protected WebDriver driver;
     private DriverFactory driverFactory;
+    protected SoftAssert softAssert;
 
     public BaseTest() {
         logger = Logger.getLogger(this.getClass().getSimpleName());
@@ -21,8 +22,8 @@ public class BaseTest {
 
     @BeforeMethod
     public void setup() {
-        logger.info("started");
-        SoftAssert softAssert = new SoftAssert();
+        logger.info("Test started");
+        softAssert = new SoftAssert();
         driverFactory = new DriverFactory();
         driver = DriverFactory.getDriverThread();
     }

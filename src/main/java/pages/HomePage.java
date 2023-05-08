@@ -8,14 +8,17 @@ import setup.DriverFactory;
 
 import java.util.List;
 
-public class HomePage extends BasePage<HomePage>{
+public class HomePage extends BasePage<HomePage> {
 
     @FindBy(css = "div.category-cards > div")
     @CacheLookup
     public List<WebElement> categoryCards;
 
+    @FindBy(className = "banner-image")
+    @CacheLookup
+    public WebElement joinNowSection;
 
-    public HomePage(){
+    public HomePage() {
         super(DriverFactory.getDriverThread());
     }
 
@@ -34,8 +37,13 @@ public class HomePage extends BasePage<HomePage>{
         return "";
     }
 
-    public void clickOnCategoryCard(String categoryName){
+    public HomePage clickOnCategoryCard(String categoryName) {
         clickElementByText(categoryName, categoryCards);
+        return this;
+    }
+
+    public boolean visibilityOfJoinNowSection() {
+        return isElementVisible(joinNowSection);
     }
 
 }

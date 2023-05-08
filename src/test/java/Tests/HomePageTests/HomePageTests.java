@@ -6,7 +6,10 @@ import pages.HomePage;
 
 public class HomePageTests extends BaseTest {
     @Test
-    public void textBoxVerification() {
+    public void homePageUIValidation() {
         HomePage homePage = new HomePage().open();
+        softAssert.assertTrue(homePage.visibilityOfJoinNowSection());
+
+        softAssert.assertAll();
     }
 }
