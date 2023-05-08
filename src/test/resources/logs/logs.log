@@ -1,4 +1,8 @@
-2023-05-08 13:40:19 INFO  ElementsTests:25 - Test started
-2023-05-08 13:40:21 INFO  ElementsTests:12 - test
-2023-05-08 13:40:23 INFO  WaitHelper:31 - RErwrwerwerwerwerwerwerwerwerw
-2023-05-08 13:40:23 INFO  HomePage:64 - Element with/ Elements/ text was clicked
+2023-05-08 16:02:49 INFO  ElementsTests:25 - Test started
+2023-05-08 16:02:51 INFO  ElementsTests:12 - test
+2023-05-08 16:02:53 INFO  HomePage:72 - Element with/ Elements/ text was clicked
+2023-05-08 16:02:53 INFO  HomePage:72 - Element with/ Text Box/ text was clicked
+2023-05-08 16:03:47 INFO  ElementsTests:25 - Test started
+2023-05-08 16:03:48 INFO  ElementsTests:12 - test
+2023-05-08 16:03:51 INFO  HomePage:72 - Element with/ Elements/ text was clicked
+2023-05-08 16:03:51 INFO  HomePage:72 - Element with/ Text Box/ text was clicked

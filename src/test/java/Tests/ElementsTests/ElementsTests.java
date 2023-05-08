@@ -13,6 +13,7 @@ public class ElementsTests extends BaseTest {
         HomePage homePage = new HomePage()
                 .init()
                 .clickOnCategoryCard(CategoriesEnum.ELEMENTS.getValue())
+                .clickOnElementSectionItem("Text Box")
                 .writeFullName("Partik jones");
     }
 }

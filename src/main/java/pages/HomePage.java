@@ -21,6 +21,9 @@ public class HomePage extends BasePage<HomePage> {
     @FindBy(id = "userName")
     public WebElement fullNameInput;
 
+    @FindBy(css = "ul.menu-list > li")
+    public List<WebElement> elements;
+
     public HomePage() {
         super(DriverFactory.getDriverThread());
     }
@@ -54,4 +57,8 @@ public class HomePage extends BasePage<HomePage> {
         return this;
     }
 
+    public HomePage clickOnElementSectionItem(String categoryName) {
+        clickElementByText(categoryName, elements);
+        return this;
+    }
 }

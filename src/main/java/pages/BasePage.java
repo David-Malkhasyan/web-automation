@@ -52,7 +52,7 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
         try {
             element.click();
         } catch (Exception e) {
-            logger.error("Clickon element isn't performed - " + e.getMessage());
+            logger.error("Clicking element isn't performed - " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -60,6 +60,7 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
     public void type(WebElement element, String text) {
         try {
             element.sendKeys(text);
+            logger.info("Text is successfully written");
         } catch (Exception e) {
             logger.error("Text writing failed");
         }

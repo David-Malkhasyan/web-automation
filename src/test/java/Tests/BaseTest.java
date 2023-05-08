@@ -30,7 +30,7 @@ public class BaseTest {
 
     @AfterMethod
     public void tearDown() {
-        WaitHelper.sleep(500);
+        WaitHelper.sleep(5000);
         driver.quit();
         DriverFactory.removeDriverThread();
     }

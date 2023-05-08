@@ -33,6 +33,7 @@ public class DriverFactory {
             }
             driverThread.get().manage().window().maximize();
             driverThread.get().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
+            driverThread.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         }
         catch (Exception e){
             System.out.println("Browser selection failed");
