@@ -25,7 +25,7 @@ public class HomePage extends BasePage<HomePage> {
     public List<WebElement> elements;
 
     public HomePage() {
-        super(DriverFactory.getDriverThread());
+        super(DriverFactory.getDriverThread(), "");
     }
 
     @Override
@@ -35,13 +35,9 @@ public class HomePage extends BasePage<HomePage> {
 
     @Override
     public HomePage init() {
-        return this.openPage(HomePage.class);
+        return this.initPage(HomePage.class);
     }
 
-    @Override
-    protected String getPageUrl() {
-        return "";
-    }
 
     public HomePage clickOnCategoryCard(String categoryName) {
         clickElementByText(categoryName, categoryCards);

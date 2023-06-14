@@ -14,8 +14,10 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
 
     protected final WebDriver driver;
     protected final Logger logger;
+    protected final String pageUrl;
 
-    public BasePage(WebDriver driver) {
+    public BasePage(WebDriver driver, String pageUrl) {
+        this.pageUrl = pageUrl;
         this.driver = driver;
         logger = Logger.getLogger(this.getClass().getSimpleName());
     }
@@ -23,8 +25,6 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
     protected abstract T open();
 
     protected abstract T init();
-
-    protected abstract String getPageUrl();
 
     protected T openPage(Class<T> clazz) {
         T page = PageFactory.initElements(driver, clazz);
@@ -39,7 +39,7 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
 
     @Override
     protected void load() {
-        driver.get(Configurations.BASE_URL + getPageUrl());
+        driver.get(Configurations.BASE_URL + pageUrl);
     }
 
     @Override
