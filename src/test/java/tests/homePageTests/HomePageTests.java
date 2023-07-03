@@ -1,9 +1,9 @@
-package Tests.HomePageTests;
+package tests.homePageTests;
 
-import Tests.BaseTest;
 import org.testng.annotations.Test;
 import pages.ElementsPage;
 import pages.HomePage;
+import tests.BaseTest;
 
 public class HomePageTests extends BaseTest {
     @Test

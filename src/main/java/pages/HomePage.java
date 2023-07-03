@@ -38,6 +38,10 @@ public class HomePage extends BasePage<HomePage> {
         return this.initPage(HomePage.class);
     }
 
+    @Override
+    protected void isLoaded() {
+
+    }
 
     public HomePage clickOnCategoryCard(String categoryName) {
         clickElementByText(categoryName, categoryCards);

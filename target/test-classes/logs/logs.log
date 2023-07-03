@@ -2,3 +2,28 @@
 2023-05-08 16:02:51 INFO  ElementsTests:12 - test
 2023-05-08 16:02:53 INFO  HomePage:72 - Element with/ Elements/ text was clicked
 2023-05-08 16:02:53 INFO  HomePage:72 - Element with/ Text Box/ text was clicked
+2023-05-08 16:03:47 INFO  ElementsTests:25 - Test started
+2023-05-08 16:03:48 INFO  ElementsTests:12 - test
+2023-05-08 16:03:51 INFO  HomePage:72 - Element with/ Elements/ text was clicked
+2023-05-08 16:03:51 INFO  HomePage:72 - Element with/ Text Box/ text was clicked
+2023-06-14 09:15:45 INFO  ElementsTests:25 - Test started
+2023-06-14 09:15:47 INFO  ElementsTests:12 - test
+2023-06-14 09:15:52 ERROR HomePage:76 - Element with such text was not found
+2023-06-14 09:15:57 ERROR HomePage:76 - Element with such text was not found
+2023-06-14 09:17:01 INFO  ElementsTests:25 - Test started
+2023-06-14 09:17:03 INFO  ElementsTests:12 - test
+2023-06-14 09:17:07 INFO  HomePage:73 - Element with/ Elements/ text was clicked
+2023-06-14 09:17:07 INFO  HomePage:73 - Element with/ Text Box/ text was clicked
+2023-06-14 09:17:07 INFO  HomePage:63 - Text is successfully written
+2023-06-14 09:54:15 INFO  ElementsTests:25 - Test started
+2023-06-14 09:54:17 INFO  ElementsTests:12 - test
+2023-06-14 09:54:22 ERROR HomePage:76 - Element with such text was not found
+2023-06-14 09:54:26 ERROR HomePage:76 - Element with such text was not found
+2023-06-14 09:54:26 ERROR HomePage:65 - Text writing failed
+2023-06-14 09:54:49 INFO  ElementsTests:25 - Test started
+2023-06-14 09:54:51 INFO  ElementsTests:12 - test
+2023-06-14 09:56:25 ERROR HomePage:76 - Element with such text was not found
+2023-06-14 09:56:29 INFO  ElementsTests:25 - Test started
+2023-06-14 09:56:30 INFO  ElementsTests:12 - test
+2023-06-14 09:57:35 INFO  ElementsTests:25 - Test started
+2023-06-14 09:57:37 INFO  ElementsTests:12 - test

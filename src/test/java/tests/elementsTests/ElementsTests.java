@@ -1,16 +1,16 @@
-package Tests.ElementsTests;
+package tests.elementsTests;
 
-import Tests.BaseTest;
 import objects.CategoriesEnum;
 import org.testng.annotations.Test;
 import pages.HomePage;
+import tests.BaseTest;
 
 public class ElementsTests extends BaseTest {
 
     @Test
     public void textBoxVerification() {
         logger.info("test");
-        HomePage homePage = new HomePage()
+        new HomePage()
                 .init()
                 .clickOnCategoryCard(CategoriesEnum.ELEMENTS.getValue())
                 .clickOnElementSectionItem("Text Box")

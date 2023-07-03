@@ -1,6 +1,8 @@
 package helpers;
 
-import org.apache.log4j.Logger;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,8 +14,7 @@ import static setup.DriverFactory.getDriverThread;
 public class WaitHelper {
 
     private static final WebDriver driver = getDriverThread();
-    private static final Logger logger = Logger.getLogger(WaitHelper.class.getSimpleName());
-
+    private static final Logger logger = LogManager.getLogger(WaitHelper.class.getSimpleName());
     public static void sleep(int threadSleepPeriod) {
         try {
             Thread.sleep(threadSleepPeriod);

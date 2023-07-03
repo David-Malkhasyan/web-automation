@@ -1,7 +1,7 @@
 package pages;
 
-import helpers.WaitHelper;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -12,14 +12,13 @@ import java.util.List;
 
 public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableComponent<T> {
 
+    protected final Logger logger = LogManager.getLogger(this.getClass().getSimpleName());
     protected final WebDriver driver;
-    protected final Logger logger;
     protected final String pageUrl;
 
     public BasePage(WebDriver driver, String pageUrl) {
         this.pageUrl = pageUrl;
         this.driver = driver;
-        logger = Logger.getLogger(this.getClass().getSimpleName());
     }
 
     protected abstract T open();
@@ -42,11 +41,6 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
         driver.get(Configurations.BASE_URL + pageUrl);
     }
 
-    @Override
-    protected void isLoaded() {
-        System.out.println("parent");
-        WaitHelper.isPageFullyLoaded(15);
-    }
 
     public void click(WebElement element) {
         try {
@@ -84,4 +78,21 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
             return false;
         }
     }
+
+    public void clear(WebElement element) {
+        element.clear();
+    }
+
+    public boolean isElementEnabled(WebElement element) {
+        return element.isEnabled();
+    }
+
+    public boolean isElementDisplayed(WebElement element) {
+        return element.isDisplayed();
+    }
+
+    public boolean isTextContainedInElement(WebElement webElement, String text) {
+        return webElement.getText().contains(text);
+    }
+
 }

@@ -1,8 +1,8 @@
-package Tests;
+package tests;
 
 import helpers.WaitHelper;
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -16,8 +16,7 @@ public class BaseTest {
     protected SoftAssert softAssert;
 
     public BaseTest() {
-        logger = Logger.getLogger(this.getClass().getSimpleName());
-        PropertyConfigurator.configure("src/main/resources/configs/log4j.properties");
+        logger = LogManager.getLogger(this.getClass().getSimpleName());
     }
 
     @BeforeMethod
