@@ -1,9 +1,11 @@
 package tests;
 
+import helpers.ChromeDevToolsHelper;
 import helpers.WaitHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
@@ -29,18 +31,20 @@ public class BaseTest {
         softAssert = new SoftAssert();
         driverFactory = new DriverFactory();
         driver = DriverFactory.getDriverThread();
+        ChromeDevToolsHelper.interceptNetworkTraffic();
     }
 
     @BeforeMethod
-    public void desrializeTestData() {
+    public void deserializeTestData() {
         mainTestData = JsonParser.deserializeJsonFile(MainTestData.mainTestDataJsonPath, MainTestData.class);
     }
 
     @AfterMethod
-    public void tearDown() {
+    public void tearDown(ITestResult testResult) {
         WaitHelper.sleep(5000);
         driver.quit();
         DriverFactory.removeDriverThread();
+        ChromeDevToolsHelper.writeNetworkLogsIntoFile(testResult.getTestName());
     }
 }
 

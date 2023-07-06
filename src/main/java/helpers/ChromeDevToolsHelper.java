@@ -75,11 +75,11 @@ public class ChromeDevToolsHelper {
         });
     }
 
-    public static void writeNetworkLogsIntoFile(String methodName) {
+    public static void writeNetworkLogsIntoFile(String testMethodName) {
         try {
             File fileToCreate = new File("networkLogs");
             fileToCreate.mkdirs();
-            FileWriter myWriter = new FileWriter("networkLogs/" + methodName + ".txt");
+            FileWriter myWriter = new FileWriter("networkLogs/" + testMethodName + ".txt");
             for (String id : requestsMap.keySet()) {
                 try {
                     String value = requestsMap.get(id);
