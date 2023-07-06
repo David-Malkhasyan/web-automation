@@ -8,12 +8,16 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
 import setup.DriverFactory;
+import testData.MainTestData;
+import uitls.JsonParser;
 
 public class BaseTest {
     protected Logger logger;
     protected WebDriver driver;
-    private DriverFactory driverFactory;
     protected SoftAssert softAssert;
+    protected MainTestData mainTestData;
+    private DriverFactory driverFactory;
+
 
     public BaseTest() {
         logger = LogManager.getLogger(this.getClass().getSimpleName());
@@ -25,6 +29,11 @@ public class BaseTest {
         softAssert = new SoftAssert();
         driverFactory = new DriverFactory();
         driver = DriverFactory.getDriverThread();
+    }
+
+    @BeforeMethod
+    public void desrializeTestData() {
+        mainTestData = JsonParser.deserializeJsonFile(MainTestData.mainTestDataJsonPath, MainTestData.class);
     }
 
     @AfterMethod

@@ -9,11 +9,11 @@ public class ElementsTests extends BaseTest {
 
     @Test
     public void textBoxVerification() {
-        logger.info("test");
+        logger.info("Test");
         new HomePage()
-                .init()
+                .open()
                 .clickOnCategoryCard(CategoriesEnum.ELEMENTS.getValue())
-                .clickOnElementSectionItem("Text Box")
-                .writeFullName("Partik jones");
+                .clickOnElementSectionItem(mainTestData.text)
+                .writeFullName(mainTestData.name);
     }
 }
