@@ -26,8 +26,8 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    public void setup() {
-        logger.info("Test started");
+    public void setup(ITestResult testResult) {
+        logger.info(testResult.getTestName() + " Test started");
         softAssert = new SoftAssert();
         driverFactory = new DriverFactory();
         driver = DriverFactory.getDriverThread();
